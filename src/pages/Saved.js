@@ -1,56 +1,82 @@
-import React from "react";
-// import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import SaveBtn from "../components/SaveBtn";
+// import React from "react";
+import React , { Component } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import Jumbotron from "../components/Jumbotron";
+// import SaveBtn from "../components/SaveBtn";
+// import { Input, FormBtn } from "../components/Form";
+// import { Col, Row, Container } from "../components/Grid";
 
-function Saved() {
+class Saved extends Component {
 
-  return (
-    <div>
-      <h1>Saved Books</h1>
-      <p>
-  <List>
+  state = {
+    booksFromDb: []
+  };
+
+deleteBook = id => {
+  API.deleteBook(id)
+    .then(res => {alert("Book has been deleted!")
+    this.loadSaved();
+    this.setState({ state: this.state });
+    })
+    .catch(err => console.log(err));
+
+    this.setState({ state: this.state });
+};
+
+loadSaved = () => {
+  API.getBooks()
+    .then(res => {
+      this.setState({ booksFromDb: [...res.data]})
+     })
+    .catch(err => console.log(err));   
+};
+
+  componentDidMount() {
+      this.setState({ state: this.state });
+      this.loadSaved();
+  };
+
+  render() {
+    this.loadSaved();
+    return (
+      <div>
+        <h1>Saved Books</h1>
+        {this.state.booksFromDb.length ? (
+        <List>
+          {this.state.booksFromDb.map((book,index) => (
+          <ListItem key={book._id}>
       
-      <ListItem>
-        {/* <Link to={"/books/" + book.volumeInfo.title}> */}
           <strong>
             
-            Title: 
+            Title: {book.title}
+            <br />            
+            Author:   {book.author}
             <br />
-            {/* Author:  {book.volumeInfo.authors.map((author,i) => {
-              return author + "  ";
-            })} */}
-            Author: 
+            Description: {book.description} 
             <br />
-            Description:  
+            <img src={book.image} alt="" />
             <br />
-            
-            <br />
-            InfoLink: 
-          
-            
+            InfoLink: <a href={book.link}>{book.link}</a>
+                     
           </strong>
-          {/* </Link> */}
         
         <DeleteBtn 
-        // onClick={() => this.saveBook(book.id)}
+        onClick={() => this.deleteBook(book._id)}
         />
       </ListItem>
-    )}
+    ))}
   </List>
- }
-    )
-
-    </p>
+  ) : (
+    <h3>No Results to Display</h3>
+   )}
+    {/* </p> */}
     </div>
-  )
-    } 
+    );
+  }
+}
 export default Saved;
 
 

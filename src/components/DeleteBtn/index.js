@@ -5,9 +5,13 @@ import "./style.css";
 // That way we don't have to define them all individually
 function DeleteBtn(props) {
   return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
-      Delete Book
-    </span>
+    // <span className="delete-btn" {...props} role="button" tabIndex="0">
+    //   Delete Book
+    // </span>
+    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-danger btn-sm">
+    Delete Book
+    {props.children}
+  </button>
   );
 }
 

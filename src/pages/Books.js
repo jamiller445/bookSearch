@@ -17,6 +17,7 @@ class Books extends Component {
     topic: '',
     booksIndex: null,
     displayBooks: [],
+    addedToSave: [],
     state: ''
   };
 
@@ -31,13 +32,14 @@ class Books extends Component {
   // };
 
   saveBook = id => {
+    console.log("id in saveBook= ",id);
     let indexClicked = this.state.books.findIndex(x =>
       x.id === id);
     const bookToSave = this.state.books.filter((b) => {     
       return b.id === id;
     })
     this.state.books.splice(indexClicked,1);
-    console.log("newBooks Array= ",this.state.books);
+    // console.log("newBooks Array= ",this.state.books);
 
     let sbook = {
       author: bookToSave[0].volumeInfo.authors,
@@ -48,15 +50,18 @@ class Books extends Component {
     }
      
     API.saveBook(sbook)
-      .then(res => alert("Book has been saved"))
+      .then(res =>  { alert("Book has been saved!")
+      this.setState({addedToSave: sbook});
+      // this.setState({ state: this.state })
+      
+      })
       .catch(err => console.log(err));
 
-      this.setState({ state: this.state });
+      // this.setState({ state: this.state });
   };
 
-
   loadBooks = () => {  
-    console.log("books at top of loadbooks", this.state.books);
+    // console.log("books at top of loadbooks", this.state.books);
     API.googleBooks(this.state.topic)
         .then(res => {
           console.log("res= ",res);
@@ -77,7 +82,7 @@ class Books extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.topic) {
-      console.log("topic in formsubmit= ", this.state.topic)
+      // console.log("topic in formsubmit= ", this.state.topic)
       this.loadBooks();
     }
   };
@@ -97,7 +102,7 @@ class Books extends Component {
               name="topic" 
               placeholder="Topic Search (required)"
               />
-              {console.log("topic= ", this.state.topic)}
+              {/* {console.log("topic= ", this.state.topic)} */}
               <FormBtn
                 disabled={!(this.state.topic)}
                 onClick={this.handleFormSubmit}
@@ -110,7 +115,7 @@ class Books extends Component {
               <h1>Books On My List</h1>
             </Jumbotron>
             <Link to="/saved" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>
-            Go to Saved Books
+            View Saved
             </Link>
             {this.state.books.length ? (
               <List>
