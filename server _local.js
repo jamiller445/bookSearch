@@ -17,20 +17,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// app.get("/", function(req, res) {
-//   res.json(path.join(__dirname, "public/index.html"));
-// });
-
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/ping', function (req, res) {
-  return res.send('pong');
- });
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-
 app.use(routes);
 
 // Define API routes here
