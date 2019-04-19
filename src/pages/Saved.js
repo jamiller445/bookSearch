@@ -34,10 +34,10 @@ loadSaved = () => {
     .catch(err => console.log(err));   
 };
 
-  // componentDidMount() {
-  //     this.setState({ state: this.state });
-  //     this.loadSaved();
-  // };
+  componentDidMount() {
+      // this.setState({ state: this.state });
+      this.loadSaved();
+  };
 
   render() {
     this.loadSaved();
