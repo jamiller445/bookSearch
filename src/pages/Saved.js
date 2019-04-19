@@ -35,7 +35,7 @@ loadSaved = () => {
 };
 
   componentDidMount() {
-      this.setState({ state: this.state });
+      // this.setState({ state: this.state });
       this.loadSaved();
   };
 
