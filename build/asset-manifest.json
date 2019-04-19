@@ -1,13 +1,13 @@
 {
-  "main.css": "/bookSearch/static/css/main.eaa4c1be.chunk.css",
-  "main.js": "/bookSearch/static/js/main.71ec410d.chunk.js",
-  "main.js.map": "/bookSearch/static/js/main.71ec410d.chunk.js.map",
-  "runtime~main.js": "/bookSearch/static/js/runtime~main.d9cec484.js",
-  "runtime~main.js.map": "/bookSearch/static/js/runtime~main.d9cec484.js.map",
-  "static/js/2.6c6f4fa9.chunk.js": "/bookSearch/static/js/2.6c6f4fa9.chunk.js",
-  "static/js/2.6c6f4fa9.chunk.js.map": "/bookSearch/static/js/2.6c6f4fa9.chunk.js.map",
-  "index.html": "/bookSearch/index.html",
-  "precache-manifest.c6efc0b2a8d29e665bc422071661a73b.js": "/bookSearch/precache-manifest.c6efc0b2a8d29e665bc422071661a73b.js",
-  "service-worker.js": "/bookSearch/service-worker.js",
-  "static/css/main.eaa4c1be.chunk.css.map": "/bookSearch/static/css/main.eaa4c1be.chunk.css.map"
+  "main.css": "/static/css/main.eaa4c1be.chunk.css",
+  "main.js": "/static/js/main.71ec410d.chunk.js",
+  "main.js.map": "/static/js/main.71ec410d.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+  "static/js/2.6c6f4fa9.chunk.js": "/static/js/2.6c6f4fa9.chunk.js",
+  "static/js/2.6c6f4fa9.chunk.js.map": "/static/js/2.6c6f4fa9.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.edb6fcf0cbac1caf48b353c7bca91fff.js": "/precache-manifest.edb6fcf0cbac1caf48b353c7bca91fff.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.eaa4c1be.chunk.css.map": "/static/css/main.eaa4c1be.chunk.css.map"
 }
